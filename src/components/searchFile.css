@@ -1,0 +1,11 @@
+button {
+  margin-top: 10px;
+  margin-inline: 10px;
+  align-self: flex-end;
+}
+input {
+  width: 70%;
+  padding: 5px;
+  box-sizing: border-box;
+  margin: 20px;
+}

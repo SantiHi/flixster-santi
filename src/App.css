@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  background-color: black;
+}
+
+h2 {
+  color: gold;
+  padding: 20px;
+  margin: 0;
+  background-color: rgb(18, 18, 18);
+}
+
+header {
+  background-color: black;
 }
 
 .App-header {
@@ -9,7 +21,6 @@
   align-items: center;
   justify-content: space-evenly;
   color: white;
-  padding: 20px;
 }
 
 @media (max-width: 600px) {
@@ -25,4 +36,8 @@
   .search-bar form {
     flex-direction: column;
   }
+}
+
+#more-button {
+  margin-bottom: 30px;
 }
