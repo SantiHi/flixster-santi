@@ -97,7 +97,7 @@ const App = () => {
               <img src={`https://image.tmdb.org/t/p/w400${details.backDrop}`} />
               <h3> Release Date: {details.releaseDate} </h3>
               <h3> {details.genres}</h3>
-              <h3> Overview {details.overview}</h3>
+              <h3> Overview: {details.overview}</h3>
               <button onClick={handleClickModal}>Close</button>
             </div>
           </div>
@@ -119,7 +119,7 @@ const App = () => {
       </button>
 
       <footer>
-        <h4> © 2025 Santiago Criado | </h4>
+        <h4> © 2025 Santiago Criado |</h4>
         <a href="https://github.com/SantiHi/flixster-starter" target="_blank">
           GitHub
         </a>
