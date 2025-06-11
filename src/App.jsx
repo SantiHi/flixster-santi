@@ -78,19 +78,19 @@ const App = () => {
         <div id="search-sort"></div>
         <SearchFile query={handleSearch} nowPlayingChange={setNowPlaying} />
       </header>
-      {
-        //<>
-        <div className="modal-overlay">
-          <div className="info-modal">
-            <h3>{details.title}</h3>
-            <img src={`https://image.tmdb.org/t/p/w400${details.backDrop}`} />
-            <h3> Release Date: {details.releaseDate} </h3>
-            <h3> Overview: {details.overview}</h3>
-            <button> Close </button>
+      {isPopup && (
+        <>
+          <div className="modal-overlay">
+            <div className="info-modal">
+              <h3>{details.title}</h3>
+              <img src={`https://image.tmdb.org/t/p/w400${details.backDrop}`} />
+              <h3> Release Date: {details.releaseDate} </h3>
+              <h3> Overview: {details.overview}</h3>
+              <button> Close </button>
+            </div>
           </div>
-        </div>
-        // </>
-      }
+        </>
+      )}
       <MovieList
         results={searchResults}
         showOverlay={setMovieDetails}
