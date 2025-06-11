@@ -42,15 +42,30 @@ header {
   margin-bottom: 30px;
 }
 
-.green {
-  /* display: block; */
+.movie-details {
+  animation: modalAnimation 1s forwards;
   position: fixed;
   max-width: 500px;
   max-height: 500px;
   z-index: 1000;
+  border: 2px solid white;
+  padding: 40px;
+  background-color: rgb(66, 52, 42);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-overlay {
+.movie-details h3 {
+  font-size: 12px;
+  padding: 0px;
+  margin: 5;
+}
+
+.modal-overlay2 {
+  display: flex;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -60,4 +75,17 @@ header {
   align-items: center;
   justify-content: center;
   background-color: rgba(75, 49, 49, 0.4); /* Black w/ opacity */
+}
+
+@keyframes modalAnimation {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

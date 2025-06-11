@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import SearchFile from "./components/SearchFile.jsx";
 import MovieList from "./components/MovieList.jsx";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 const App = () => {
   const [searchQuery, handleSearch] = useState("");
@@ -15,7 +14,9 @@ const App = () => {
   const [details, setMovieDetails] = useState([]);
   const [isPopup, setPopup] = useState(false);
 
-  //overlay check
+  const buttonClicked = (event) => {
+    console.log();
+  };
 
   useEffect(() => {
     if (searchQuery) {
@@ -71,6 +72,11 @@ const App = () => {
       .catch((err) => console.error(err));
   };
 
+  const handleClickModal = () => {
+    console.log(details);
+    setPopup(false);
+  };
+
   return (
     <div className="App">
       <header>
@@ -80,13 +86,14 @@ const App = () => {
       </header>
       {isPopup && (
         <>
-          <div className="modal-overlay">
-            <div className="info-modal">
+          <div className="modal-overlay2">
+            <div className="movie-details">
               <h3>{details.title}</h3>
               <img src={`https://image.tmdb.org/t/p/w400${details.backDrop}`} />
               <h3> Release Date: {details.releaseDate} </h3>
-              <h3> Overview: {details.overview}</h3>
-              <button> Close </button>
+              <h3> {details.genres}</h3>
+              <h3> Overview {details.overview}</h3>
+              <button onClick={handleClickModal}>Close</button>
             </div>
           </div>
         </>

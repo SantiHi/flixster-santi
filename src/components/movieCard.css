@@ -33,23 +33,3 @@ img {
     opacity: 1;
   }
 }
-
-.info-modal {
-  display: block;
-  position: fixed;
-  max-width: 500px;
-  max-height: 500px;
-}
-
-.modal-overlay {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(169, 47, 47, 0.4); /* Black w/ opacity */
-}

@@ -36,9 +36,13 @@ const MovieCard = ({
           title: json.title,
           backDrop: json.backdrop_path,
           runtime: json.runtime,
-          releaseDate: json.relase_date,
-          genres: json.genres.map((value) => {
-            value.name;
+          releaseDate: json.release_date,
+          genres: json.genres.map((value, index) => {
+            if (index != json.genres.length - 1) {
+              return value.name + ", ";
+            } else {
+              return value.name;
+            }
           }),
           overview: json.overview,
         };
