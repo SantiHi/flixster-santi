@@ -9,6 +9,7 @@ const App = () => {
   const [loadedResults, handleLoadedResults] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [isNowPlaying, setNowPlaying] = useState(false);
+  const [sortFunction, setSortFunction] = useState("alphabetic");
 
   //Overlay States
   const [details, setMovieDetails] = useState([]);
@@ -82,7 +83,11 @@ const App = () => {
       <header>
         <h2>Flixster</h2>
         <div id="search-sort"></div>
-        <SearchFile query={handleSearch} nowPlayingChange={setNowPlaying} />
+        <SearchFile
+          query={handleSearch}
+          nowPlayingChange={setNowPlaying}
+          setSortFunction={setSortFunction}
+        />
       </header>
       {isPopup && (
         <>
@@ -102,6 +107,7 @@ const App = () => {
         results={searchResults}
         showOverlay={setMovieDetails}
         popUp={setPopup}
+        sortFunction={sortFunction}
       />
       <button
         id="more-button"
@@ -111,6 +117,13 @@ const App = () => {
       >
         Load More
       </button>
+
+      <footer>
+        <h4> © 2025 Santiago Criado | </h4>
+        <a href="https://github.com/SantiHi/flixster-starter" target="_blank">
+          GitHub
+        </a>
+      </footer>
     </div>
   );
 };

@@ -89,3 +89,15 @@ header {
     opacity: 1;
   }
 }
+
+footer h4 {
+  color: gold;
+  margin-right: 10px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

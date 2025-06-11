@@ -3,12 +3,14 @@ import ReactDOM from "react-dom";
 import { useState } from "react";
 import "./searchFile.css";
 
-const SearchFile = ({ query, nowPlayingChange }) => {
+const SearchFile = ({ query, nowPlayingChange, setSortFunction }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     nowPlayingChange(false);
     query(event.target.elements.searchBar.value);
   };
+
+  const [formValue, setFormValue] = useState("alphabetic");
 
   const handleNowPlaying = (event) => {
     event.preventDefault();
@@ -21,6 +23,11 @@ const SearchFile = ({ query, nowPlayingChange }) => {
     query("");
   };
 
+  const handleChange = (event) => {
+    event.preventDefault();
+    setFormValue(event.target.value);
+    setSortFunction(event.target.value);
+  };
   return (
     // JSX code to render component.
     <div className="search-container">
@@ -29,6 +36,13 @@ const SearchFile = ({ query, nowPlayingChange }) => {
         <button>Submit</button>
         <button onClick={handleClear}> Clear </button>
         <button onClick={handleNowPlaying}>Now Playing</button>
+      </form>
+      <form>
+        <select value={formValue} onChange={handleChange} name="seach-form">
+          <option value="alphabetic">alphabetic</option>
+          <option value="date-released">Date Released</option>
+          <option value="rating">Rating</option>
+        </select>
       </form>
     </div>
   );

@@ -1,8 +1,51 @@
 import MovieCard from "./MovieCard";
 import "./movieList.css";
 
-const MovieList = ({ results, showOverlay, popUp }) => {
+const MovieList = ({ results, showOverlay, popUp, sortFunction }) => {
+  const sort = (sortingFunc) => {
+    if (sortingFunc === "alphabetic") {
+      // lexographically by name of playlist
+      console.log(results);
+      results.sort((a, b) => compareTitle(a, b));
+      console.log(results);
+    } else if (sortingFunc === "rating") {
+      // by number of likes (descending)
+      results.sort((a, b) => compareRating(a, b));
+    } else {
+      // sort by date
+      results.sort((a, b) => compareDate(a, b));
+    }
+  };
+
+  const compareTitle = (movie1, movie2) => {
+    const title1 = movie1.title;
+    const title2 = movie2.title;
+    if (title2 > title1) {
+      return -1;
+    } else if (title2 < title1) {
+      return 1;
+    } else {
+      return compareRating(movie1, movie2);
+    }
+  };
+
+  const compareRating = (movie1, movie2) => {
+    // names lexographically
+    const likes1 = movie1.vote_average;
+    const likes2 = movie2.vote_average;
+    if (likes1 >= likes2) return -1;
+    return 1;
+  };
+
+  const compareDate = (movie1, movie2) => {
+    let date1 = new Date(movie1.release_date);
+    let date2 = new Date(movie2.release_date);
+    if (date2 >= date1) return 1;
+    return -1;
+  };
+
   if (results) {
+    sort(sortFunction);
     return (
       <div>
         <div className="movie-list">
