@@ -12,12 +12,9 @@ const MovieCard = ({
   const trueTitle =
     title === "" || title === null || title === undefined ? "randTitle" : title;
 
-  const [details, setDetails] = useState([]);
-
   const handleClick = (event) => {
     event.preventDefault();
     getDetails();
-    overlayFunc(details);
     popUp(true);
   };
 
@@ -35,9 +32,8 @@ const MovieCard = ({
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
-        setDetails({
-          titke: json.title,
+        const details = {
+          title: json.title,
           backDrop: json.backdrop_path,
           runtime: json.runtime,
           releaseDate: json.relase_date,
@@ -45,7 +41,8 @@ const MovieCard = ({
             value.name;
           }),
           overview: json.overview,
-        });
+        };
+        overlayFunc(details);
       })
       .catch((err) => console.error(err));
   };

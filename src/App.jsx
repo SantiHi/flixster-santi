@@ -18,7 +18,6 @@ const App = () => {
   //overlay check
 
   useEffect(() => {
-    console.log(searchQuery);
     if (searchQuery) {
       fetchSearch(searchQuery);
     } else {
@@ -52,7 +51,6 @@ const App = () => {
         query
       )}&page=${pageNumber}`;
     }
-    console.log(url);
     const options = {
       method: "GET",
       headers: {
@@ -80,6 +78,19 @@ const App = () => {
         <div id="search-sort"></div>
         <SearchFile query={handleSearch} nowPlayingChange={setNowPlaying} />
       </header>
+      {
+        //<>
+        <div className="modal-overlay">
+          <div className="info-modal">
+            <h3>{details.title}</h3>
+            <img src={`https://image.tmdb.org/t/p/w400${details.backDrop}`} />
+            <h3> Release Date: {details.releaseDate} </h3>
+            <h3> Overview: {details.overview}</h3>
+            <button> Close </button>
+          </div>
+        </div>
+        // </>
+      }
       <MovieList
         results={searchResults}
         showOverlay={setMovieDetails}
@@ -93,18 +104,6 @@ const App = () => {
       >
         Load More
       </button>
-      {isPopup && console.log(details) && (
-        <>
-          <div className="modal-overlay"></div>
-          <div className="info-modal">
-            <h3>{details.title}</h3>
-            <img src={`https://image.tmdb.org/t/p/w400${details.backDrop}`} />
-            <h3> Release Date: {details.releaseDate} </h3>
-            <h3> Overview: {details.overview}</h3>
-            <button> Close </button>
-          </div>
-        </>
-      )}
     </div>
   );
 };
