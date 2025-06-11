@@ -11,6 +11,12 @@ const App = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [isNowPlaying, setNowPlaying] = useState(false);
 
+  //Overlay States
+  const [details, setMovieDetails] = useState([]);
+  const [isPopup, setPopup] = useState(false);
+
+  //overlay check
+
   useEffect(() => {
     console.log(searchQuery);
     if (searchQuery) {
@@ -35,14 +41,14 @@ const App = () => {
   }, [pageNumber]);
 
   const fetchSearch = (query) => {
-    const apiKey = import.meta.env.VITE_APP_API_KEY;
+    const apiKey = import.meta.env.VITE_BEARER_KEY;
     let url = "";
     if (!isNowPlaying) {
-      url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(
+      url = `https://api.themoviedb.org/3/search/movie?&query=${encodeURIComponent(
         query
       )}&page=${pageNumber}`;
     } else {
-      url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&query=${encodeURIComponent(
+      url = `https://api.themoviedb.org/3/movie/now_playing?&query=${encodeURIComponent(
         query
       )}&page=${pageNumber}`;
     }
@@ -51,8 +57,7 @@ const App = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOThmYzVlOGE2NTkxMGM4MDBlMmZiNzNkODg5OThkMiIsIm5iZiI6MTc0OTUwMzI5NC40NDQsInN1YiI6IjY4NDc0ZDNlMGVlN2UwYjY2MjM0MmE3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DV444EvRYNiCIedU2Es21YwzLWoov9JP9thnXmzead0",
+        Authorization: `Bearer ${apiKey}`,
       },
     };
 
@@ -75,16 +80,31 @@ const App = () => {
         <div id="search-sort"></div>
         <SearchFile query={handleSearch} nowPlayingChange={setNowPlaying} />
       </header>
-      <MovieList results={searchResults} />
+      <MovieList
+        results={searchResults}
+        showOverlay={setMovieDetails}
+        popUp={setPopup}
+      />
       <button
         id="more-button"
         onClick={() => {
           setPageNumber((self) => self + 1);
         }}
       >
-        {" "}
         Load More
       </button>
+      {isPopup && console.log(details) && (
+        <>
+          <div className="modal-overlay"></div>
+          <div className="info-modal">
+            <h3>{details.title}</h3>
+            <img src={`https://image.tmdb.org/t/p/w400${details.backDrop}`} />
+            <h3> Release Date: {details.releaseDate} </h3>
+            <h3> Overview: {details.overview}</h3>
+            <button> Close </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

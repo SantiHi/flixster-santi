@@ -16,12 +16,18 @@ const SearchFile = ({ query, nowPlayingChange }) => {
     nowPlayingChange(true);
   };
 
+  const handleClear = (event) => {
+    event.preventDefault();
+    query("");
+  };
+
   return (
     // JSX code to render component.
     <div className="search-container">
       <form onSubmit={handleSubmit}>
         <input placeholder="Any Movie or Series" name="searchBar"></input>
         <button>Submit</button>
+        <button onClick={handleClear}> Clear </button>
         <button onClick={handleNowPlaying}>Now Playing</button>
       </form>
     </div>

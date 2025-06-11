@@ -2,14 +2,54 @@
   border: 2px solid rgb(125, 105, 105);
   width: 225px;
   margin: 20px;
+  transition: transform 0.3s ease;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
 h3,
 p {
   color: white;
-  padding: 5thatpx;
+  padding: 5px;
 }
 
 img {
   width: 100%;
+}
+
+@keyframes modalAnimation {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.info-modal {
+  display: block;
+  position: fixed;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(169, 47, 47, 0.4); /* Black w/ opacity */
 }
