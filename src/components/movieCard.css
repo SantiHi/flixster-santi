@@ -3,6 +3,10 @@
   width: 225px;
   margin: 20px;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .movieCard:hover {
@@ -21,15 +25,68 @@ img {
   width: 100%;
 }
 
-@keyframes modalAnimation {
-  0% {
-    transform: scale(0);
+.movieCard button {
+  align-self: first baseline;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+}
+
+.movieCard button {
+  align-self: first baseline;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+}
+
+.movieCard #Fav {
+  align-self: first baseline;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  color: goldenrod;
+}
+
+.movieCard #notFav {
+  align-self: first baseline;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  color: white;
+}
+
+.movieCard #check {
+  align-self: first baseline;
+  position: absolute;
+  padding: 3px;
+  padding-inline: 8px;
+  bottom: 10%;
+  left: 0;
+  color: rgb(247, 249, 247);
+}
+
+.movieCard #check2 {
+  align-self: first baseline;
+  position: absolute;
+  padding: 3px;
+  padding-inline: 8px;
+  bottom: 10%;
+  left: 0;
+  color: rgb(79, 225, 79);
+}
+
+@media (max-width: 600px) {
+  .movieCard {
+    transform: scale(0.8);
   }
-  50% {
-    transform: scale(1.1);
+  h3,
+  p {
+    font-size: 50%;
   }
-  100% {
-    transform: scale(1);
-    opacity: 1;
+  .movieCard #check2,
+  .movieCard #check,
+  .movieCard #notFav,
+  .movieCard #Fav {
+    transform: scale(0.5);
   }
 }

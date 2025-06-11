@@ -1,8 +1,17 @@
 import MovieCard from "./MovieCard";
 import "./movieList.css";
 
-const MovieList = ({ results, showOverlay, popUp, sortFunction }) => {
+const MovieList = ({
+  results,
+  showOverlay,
+  popUp,
+  sortFunction,
+  setYoutubeURL,
+}) => {
   const sort = (sortingFunc) => {
+    if (sortingFunc === "Sort") {
+      return;
+    }
     if (sortingFunc === "alphabetic") {
       // lexographically by name of playlist
       console.log(results);
@@ -59,6 +68,7 @@ const MovieList = ({ results, showOverlay, popUp, sortFunction }) => {
                 movieID={value.id}
                 overlayFunc={showOverlay}
                 popUp={popUp}
+                setYoutubeURL={setYoutubeURL}
               />
             );
           })}

@@ -8,23 +8,20 @@ const App = () => {
   const [searchResults, handleResults] = useState([]);
   const [loadedResults, handleLoadedResults] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
-  const [isNowPlaying, setNowPlaying] = useState(false);
-  const [sortFunction, setSortFunction] = useState("alphabetic");
-
+  const [isNowPlaying, setNowPlaying] = useState(true);
+  const [sortFunction, setSortFunction] = useState("Sort");
+  const [youtubeURL, setYoutubeURL] = useState("");
   //Overlay States
   const [details, setMovieDetails] = useState([]);
   const [isPopup, setPopup] = useState(false);
 
-  const buttonClicked = (event) => {
-    console.log();
-  };
-
   useEffect(() => {
-    if (searchQuery) {
+    if (searchQuery != "" && searchQuery != null && searchQuery != null) {
       fetchSearch(searchQuery);
     } else {
+      setNowPlaying(true);
       setPageNumber(1);
-      handleResults([]);
+      fetchSearch("");
     }
   }, [searchQuery]);
 
@@ -49,9 +46,10 @@ const App = () => {
         query
       )}&page=${pageNumber}`;
     } else {
-      url = `https://api.themoviedb.org/3/movie/now_playing?&query=${encodeURIComponent(
-        query
-      )}&page=${pageNumber}`;
+      url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${pageNumber}`;
+    }
+    if (query === "") {
+      url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${pageNumber}`;
     }
     const options = {
       method: "GET",
@@ -74,7 +72,6 @@ const App = () => {
   };
 
   const handleClickModal = () => {
-    console.log(details);
     setPopup(false);
   };
 
@@ -95,9 +92,13 @@ const App = () => {
             <div className="movie-details">
               <h3>{details.title}</h3>
               <img src={`https://image.tmdb.org/t/p/w400${details.backDrop}`} />
+              <h3> {details.runtime} minutes</h3>
               <h3> Release Date: {details.releaseDate} </h3>
               <h3> {details.genres}</h3>
               <h3> Overview: {details.overview}</h3>
+              <iframe
+                src={`https://www.youtube.com/embed/${youtubeURL}`}
+              ></iframe>
               <button onClick={handleClickModal}>Close</button>
             </div>
           </div>
@@ -108,6 +109,7 @@ const App = () => {
         showOverlay={setMovieDetails}
         popUp={setPopup}
         sortFunction={sortFunction}
+        setYoutubeURL={setYoutubeURL}
       />
       <button
         id="more-button"

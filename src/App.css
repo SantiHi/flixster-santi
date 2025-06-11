@@ -45,8 +45,8 @@ header {
 .movie-details {
   animation: modalAnimation 1s forwards;
   position: fixed;
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 600px;
+  max-height: 700px;
   z-index: 1000;
   border: 2px solid white;
   padding: 40px;
