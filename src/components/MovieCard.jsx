@@ -9,10 +9,13 @@ const MovieCard = ({
   overlayFunc,
   popUp,
   setYoutubeURL,
+  setWatchedMovies,
+  setFavoritedMovies,
+  favoritedMovies,
+  watchedMovies,
 }) => {
   const trueTitle =
     title === "" || title === null || title === undefined ? "randTitle" : title;
-
   const handleClick = (event) => {
     event.preventDefault();
     getDetails();
@@ -20,15 +23,44 @@ const MovieCard = ({
     popUp(true);
   };
 
-  const [isChecked, setChecked] = useState("check");
-  const [isFavorite, setFavorite] = useState("notFav");
+  const [isChecked, setChecked] = useState(() => {
+    if (watchedMovies === undefined || watchedMovies.length === 0) {
+      return "check";
+    }
+    const isChecked = watchedMovies.some((self) => self.id === movieID);
+    if (isChecked) {
+      return "check";
+    } else {
+      return "check2";
+    }
+  });
+  if (movieID === 1376434) {
+    console.log(favoritedMovies);
+  }
+  const [isFavorite, setFavorite] = useState(() => {
+    if (favoritedMovies === undefined || favoritedMovies.length === 0) {
+      return "notFav";
+    }
+    const isChecked = favoritedMovies.some((self) => self.id === movieID);
+    if (isChecked) {
+      return "Fav";
+    } else {
+      return "notFav";
+    }
+  });
 
   const handleCheck = (event) => {
     event.stopPropagation();
     if (isChecked === "check") {
       setChecked("check2");
+      setWatchedMovies((self) => [...self, { title: trueTitle, id: movieID }]);
     } else {
       setChecked("check");
+      setWatchedMovies((self) =>
+        self.filter((v) => {
+          return v.title != trueTitle;
+        })
+      );
     }
   };
 
@@ -36,8 +68,17 @@ const MovieCard = ({
     event.stopPropagation();
     if (isFavorite === "notFav") {
       setFavorite("Fav");
+      setFavoritedMovies((self) => [
+        ...self,
+        { title: trueTitle, id: movieID },
+      ]);
     } else {
       setFavorite("notFav");
+      setFavoritedMovies((self) =>
+        self.filter((v) => {
+          return v.title != trueTitle;
+        })
+      );
     }
   };
 
@@ -83,7 +124,6 @@ const MovieCard = ({
           if (
             clip.type == "Trailer" &&
             clip.name.toLowerCase().includes("trailer") &&
-            clip.official === true &&
             !clip.name.toLowerCase().includes("vertical")
           ) {
             return true;
@@ -91,7 +131,6 @@ const MovieCard = ({
             return false;
           }
         });
-        console.log(trailer.at(-1).key);
         setYoutubeURL(trailer.at(-1).key);
       })
       .catch((err) => console.error(err));

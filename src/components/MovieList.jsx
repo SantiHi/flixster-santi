@@ -7,6 +7,10 @@ const MovieList = ({
   popUp,
   sortFunction,
   setYoutubeURL,
+  setWatchedMovies,
+  setFavoritedMovies,
+  favoritedMovies,
+  watchedMovies,
 }) => {
   const sort = (sortingFunc) => {
     if (sortingFunc === "Sort") {
@@ -52,7 +56,6 @@ const MovieList = ({
     if (date2 >= date1) return 1;
     return -1;
   };
-
   if (results) {
     sort(sortFunction);
     return (
@@ -61,7 +64,7 @@ const MovieList = ({
           {results.map((value, index) => {
             return (
               <MovieCard
-                key={index}
+                key={value.id}
                 posterURL={`https://image.tmdb.org/t/p/w400${value.poster_path}`}
                 title={value.title}
                 rating={value.vote_average}
@@ -69,6 +72,10 @@ const MovieList = ({
                 overlayFunc={showOverlay}
                 popUp={popUp}
                 setYoutubeURL={setYoutubeURL}
+                setFavoritedMovies={setFavoritedMovies}
+                setWatchedMovies={setWatchedMovies}
+                favoritedMovies={favoritedMovies}
+                watchedMovies={watchedMovies}
               />
             );
           })}
