@@ -122,7 +122,6 @@ const App = () => {
 
   const handleFavClick = () => {
     fetchSearch("", true, false);
-    console.log(favoritedMovies);
   };
 
   const handleWatchedClick = () => {
@@ -130,9 +129,7 @@ const App = () => {
   };
 
   const homeClicked = (event) => {
-    console.log(searchQuery);
     console.log("got here");
-    console.log(favoritedMovies);
     if (searchQuery === "") {
       handleSearch("now-playing");
     } else {
@@ -149,7 +146,10 @@ const App = () => {
       <div className="body-container">
         <div className="sidebar">
           <div id="buttons">
-            <button onClick={homeClicked}> Home </button>
+            <button onClick={homeClicked} id="home">
+              {" "}
+              ⌂{" "}
+            </button>
             <button
               id="favorite"
               onMouseEnter={() => setVisibleFavorites(true)}
@@ -157,7 +157,7 @@ const App = () => {
               onClick={handleFavClick}
             >
               {" "}
-              Favorites{" "}
+              ★{" "}
             </button>
             {isVisibleFavorites &&
               favoritedMovies.map((value) => {
@@ -174,7 +174,7 @@ const App = () => {
               onClick={handleWatchedClick}
             >
               {" "}
-              Watched{" "}
+              ✓{" "}
             </button>
             {isVisibleWatched &&
               watchedMovies.map((value) => {
@@ -229,6 +229,7 @@ const App = () => {
             Load More
           </button>
         </div>
+        <div className="sidebar-right"></div>
       </div>
       <footer>
         <h4> © 2025 Santiago Criado |</h4>

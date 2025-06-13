@@ -46,6 +46,7 @@ const MovieCard = ({
       return "Fav";
     } else {
       return "notFav";
+      udgtuhbkvkndvbfgjdkkhjgtbfciicdh;
     }
   });
 

@@ -1,13 +1,19 @@
 .App {
   text-align: center;
   background-color: black;
+  min-height: 100vh;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {
-  color: gold;
+  color: rgb(13, 13, 12);
   padding: 20px;
   margin: 0;
-  background-color: rgb(18, 18, 18);
+  background-color: #fcf7f7;
+  font-family: "Brush Script MT", cursive;
+  font-size: 40px;
 }
 
 header {
@@ -15,7 +21,6 @@ header {
 }
 
 .App-header {
-  background-color: #282c34;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,8 +81,10 @@ header {
 }
 
 footer h4 {
-  color: gold;
+  color: black;
   margin-right: 10px;
+  font-size: large;
+  font-family: "Brush Script MT", cursive;
 }
 
 footer {
@@ -85,11 +92,15 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  float: bottom;
+  background-color: #fcf7f7;
 }
 
 .body-container {
   display: flex;
   flex-direction: row;
+  flex-grow: 1;
+  height: 100%;
 }
 
 .sidebar {
@@ -97,9 +108,13 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(30, 27, 30);
-  flex: 1;
-  max-width: 10%;
+  background-color: rgb(30, 33, 41);
+  width: 6%;
+}
+
+.sidebar-right {
+  background-color: rgb(30, 33, 41);
+  width: 6%;
 }
 
 #non-searchbar {
@@ -114,10 +129,22 @@ footer {
 
 #favorite {
   color: gold;
+  padding-inline: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#home {
+  font-size: 25px;
+  padding-inline: 8px;
 }
 
 #watched {
   color: rgb(24, 176, 24);
+  font-size: 20px;
+  padding-inline: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #favorite-text {
@@ -164,6 +191,6 @@ button {
     transform: scale(0.5);
   }
   button {
-    transform: scale(0.9);
+    transform: scale(0.7);
   }
 }
