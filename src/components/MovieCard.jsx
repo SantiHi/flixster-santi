@@ -27,26 +27,25 @@ const MovieCard = ({
     if (watchedMovies === undefined || watchedMovies.length === 0) {
       return "check";
     }
-    const isChecked = watchedMovies.some((self) => self.id === movieID);
-    if (isChecked) {
-      return "check";
-    } else {
+    const checked = watchedMovies.some((self) => self.id === movieID);
+    if (checked === true) {
       return "check2";
+    } else {
+      return "check";
     }
   });
   if (movieID === 1376434) {
-    console.log(favoritedMovies);
+    console.log(watchedMovies);
   }
   const [isFavorite, setFavorite] = useState(() => {
     if (favoritedMovies === undefined || favoritedMovies.length === 0) {
       return "notFav";
     }
-    const isChecked = favoritedMovies.some((self) => self.id === movieID);
-    if (isChecked) {
+    const Favorite = favoritedMovies.some((self) => self.id === movieID);
+    if (Favorite === true) {
       return "Fav";
     } else {
       return "notFav";
-      udgtuhbkvkndvbfgjdkkhjgtbfciicdh;
     }
   });
 

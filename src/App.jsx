@@ -23,7 +23,6 @@ const App = () => {
   const [favoritedMovies, setFavoritedMovies] = useState([]);
 
   useEffect(() => {
-    console.log("home");
     if (searchQuery != "" && searchQuery != null && searchQuery != null) {
       handleResults([]);
       fetchSearch(searchQuery, false, false);
@@ -129,7 +128,6 @@ const App = () => {
   };
 
   const homeClicked = (event) => {
-    console.log("got here");
     if (searchQuery === "") {
       handleSearch("now-playing");
     } else {
@@ -146,7 +144,7 @@ const App = () => {
       <div className="body-container">
         <div className="sidebar">
           <div id="buttons">
-            <button onClick={homeClicked} id="home">
+            <button onClick={homeClicked} id="home1">
               {" "}
               ⌂{" "}
             </button>
@@ -178,7 +176,11 @@ const App = () => {
             </button>
             {isVisibleWatched &&
               watchedMovies.map((value) => {
-                return <p id="watched-text">{value.title}</p>;
+                return (
+                  <p key={value.id} id="watched-text">
+                    {value.title}
+                  </p>
+                );
               })}
           </div>
         </div>
@@ -218,7 +220,7 @@ const App = () => {
             setWatchedMovies={setWatchedMovies}
             setFavoritedMovies={setFavoritedMovies}
             favoritedMovies={favoritedMovies}
-            favoriteMovies={favoritedMovies}
+            watchedMovies={watchedMovies}
           />
           <button
             id="more-button"

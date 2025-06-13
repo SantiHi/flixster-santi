@@ -49,46 +49,46 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
       - [x] Release date
       - [x] Genres
       - [x] An overview
-  - [ ] Users can use a drop-down menu to sort movies.
-    - [ ] Drop-down allows movies to be sorted by:
-      - [ ] Title (alphabetic, A-Z)
-      - [ ] Release date (chronologically, most recent to oldest)
-      - [ ] Vote average (descending, highest to lowest)
-    - [ ] When a sort option is clicked, movies display in a grid according to selected criterion.
-  - [ ] Website displays:
-    - [ ] Header section
+  - [x] Users can use a drop-down menu to sort movies.
+    - [x] Drop-down allows movies to be sorted by:
+      - [x] Title (alphabetic, A-Z)
+      - [x] Release date (chronologically, most recent to oldest)
+      - [x] Vote average (descending, highest to lowest)
+    - [x] When a sort option is clicked, movies display in a grid according to selected criterion.
+  - [x] Website displays:
+    - [x] Header section
     - [ ] Banner section
-    - [ ] Search bar
-    - [ ] Movie grid
-    - [ ] Footer section
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it.
-  - [ ] **Deployment**
-  - [ ] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
+    - [x] Search bar
+    - [x] Movie grid
+    - [x] Footer section
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it.
+  - [x] **Deployment**
+  - [x] Website is deployed via Render.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
 
 #### STRETCH FEATURES
 
-- [ ] **Embedded Movie Trailers**
-  - [ ] Within the pop-up modal displaying a movie's details, the movie trailer is viewable.
-    - [ ] When the trailer is clicked, users can play the movie trailer.
-- [ ] **Favorite Button**
-  - [ ] For each movie displayed, users can favorite the movie.
-  - [ ] There should be visual element (such as a heart icon) on each movie's tile to show whether or not the movie has been favorited.
-  - [ ] If the movie is not favorited:
-    - [ ] Clicking on the visual element should mark the movie as favorited
-    - [ ] There should be visual feedback (such as the heart turning a different color) to show that the movie has been favorited by the user.
-  - [ ] If the movie is already favorited:
-    - [ ] Clicking on the visual element should mark the movie as _not_ favorited.
-    - [ ] There should be visual feedback (such as the heart turning a different color) to show that the movie has been unfavorited.
-- [ ] **Watched Checkbox**
-  - [ ] For each movie displayed, users can mark the movie as watched.
-  - [ ] There should be visual element (such as an eye icon) on each movie's tile to show whether or not the movie has been watched.
-  - [ ] If the movie has not been watched:
-    - [ ] Clicking on the visual element should mark the movie as watched
-    - [ ] There should be visual feedback (such as the eye turning a different color) to show that the movie has been watched by the user.
-  - [ ] If the movie is already watched:
-    - [ ] Clicking on the visual element should mark the movie as _not_ watched.
-    - [ ] There should be visual feedback (such as the eye turning a different color) to show that the movie has not been watched.
+- [x] **Embedded Movie Trailers**
+  - [x] Within the pop-up modal displaying a movie's details, the movie trailer is viewable.
+    - [x] When the trailer is clicked, users can play the movie trailer.
+- [x] **Favorite Button**
+  - [x] For each movie displayed, users can favorite the movie.
+  - [x] There should be visual element (such as a heart icon) on each movie's tile to show whether or not the movie has been favorited.
+  - [x] If the movie is not favorited:
+    - [x] Clicking on the visual element should mark the movie as favorited
+    - [x] There should be visual feedback (such as the heart turning a different color) to show that the movie has been favorited by the user.
+  - [x] If the movie is already favorited:
+    - [x] Clicking on the visual element should mark the movie as _not_ favorited.
+    - [x] There should be visual feedback (such as the heart turning a different color) to show that the movie has been unfavorited.
+- [x] **Watched Checkbox**
+  - [x] For each movie displayed, users can mark the movie as watched.
+  - [x] There should be visual element (such as an eye icon) on each movie's tile to show whether or not the movie has been watched.
+  - [x] If the movie has not been watched:
+    - [x] Clicking on the visual element should mark the movie as watched
+    - [x] There should be visual feedback (such as the eye turning a different color) to show that the movie has been watched by the user.
+  - [x] If the movie is already watched:
+    - [x] Clicking on the visual element should mark the movie as _not_ watched.
+    - [x] There should be visual feedback (such as the eye turning a different color) to show that the movie has not been watched.
 - [ ] **Sidebar**
   - [ ] The website includes a side navigation bar.
   - [ ] The sidebar has three pages:
