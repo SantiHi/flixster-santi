@@ -3,7 +3,12 @@ import ReactDOM from "react-dom";
 import { useState } from "react";
 import "./searchFile.css";
 
-const SearchFile = ({ query, nowPlayingChange, setSortFunction }) => {
+const SearchFile = ({
+  query,
+  nowPlayingChange,
+  setSortFunction,
+  homeClicked,
+}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     nowPlayingChange(false);
@@ -13,12 +18,6 @@ const SearchFile = ({ query, nowPlayingChange, setSortFunction }) => {
   const [formValue, setFormValue] = useState("Sort");
   const [inputValue, setInputValue] = useState("");
 
-  const handleNowPlaying = (event) => {
-    event.preventDefault();
-    query("now-playing");
-    nowPlayingChange(true);
-  };
-
   const handleChangeInput = (event) => {
     setInputValue(event.target.value);
   };
@@ -26,7 +25,7 @@ const SearchFile = ({ query, nowPlayingChange, setSortFunction }) => {
   const handleClear = (event) => {
     setInputValue("");
     event.preventDefault();
-    query("");
+    homeClicked();
   };
 
   const handleChange = (event) => {
@@ -37,7 +36,7 @@ const SearchFile = ({ query, nowPlayingChange, setSortFunction }) => {
   return (
     // JSX code to render component.
     <div className="search-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="seachBar">
         <input
           placeholder="Any Movie or Series"
           name="searchBar"
@@ -46,9 +45,8 @@ const SearchFile = ({ query, nowPlayingChange, setSortFunction }) => {
         ></input>
         <button>Submit</button>
         <button onClick={handleClear}> Clear </button>
-        <button onClick={handleNowPlaying}>Now Playing</button>
       </form>
-      <form>
+      <form id="sortBar">
         <select value={formValue} onChange={handleChange} name="seach-form">
           <option value="Sort">Sort</option>
           <option value="alphabetic">Alphabetic</option>

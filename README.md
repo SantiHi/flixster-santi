@@ -31,11 +31,11 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
     - [x] Clicks the Submit/Search button
   - [x] Users can click the Clear button. When clicked:
     - [x] Most recent search results are cleared from the text input field and the grid view and all current movies are displayed in a grid view
-- [ ] **Design Features**
-  - [ ] Website implements all of the following accessibility features:
-    - [ ] Semantic HTML
+- [x] **Design Features**
+  - [x] Website implements all of the following accessibility features:
+    - [x] Semantic HTML
     - [ ] [Color contrast](https://webaim.org/resources/contrastchecker/)
-    - [ ] Alt text for images
+    - [x] Alt text for images
   - [ ] Website implements responsive web design.
     - [ ] Uses CSS Flexbox or CSS Grid
     - [ ] Movie tiles and images shrink/grow in response to window size
@@ -89,15 +89,15 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
   - [x] If the movie is already watched:
     - [x] Clicking on the visual element should mark the movie as _not_ watched.
     - [x] There should be visual feedback (such as the eye turning a different color) to show that the movie has not been watched.
-- [ ] **Sidebar**
-  - [ ] The website includes a side navigation bar.
-  - [ ] The sidebar has three pages:
-    - [ ] Home
-    - [ ] Favorites
-    - [ ] Watched
-  - [ ] The Home page displays all current movies in a grid view, the search bar, and the sort movies drop-down.
-  - [ ] The Favorites page displays all favorited movies in a grid view.
-  - [ ] The Watched page displays all watched movies in a grid view.
+- [x] **Sidebar**
+  - [x] The website includes a side navigation bar.
+  - [x] The sidebar has three pages:
+    - [x] Home
+    - [x] Favorites
+    - [x] Watched
+  - [x] The Home page displays all current movies in a grid view, the search bar, and the sort movies drop-down.
+  - [x] The Favorites page displays all favorited movies in a grid view.
+  - [x] The Watched page displays all watched movies in a grid view.
 
 ### Walkthrough Video
 

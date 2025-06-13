@@ -76,7 +76,6 @@ const App = () => {
         return value.id;
       });
     }
-    console.log(idArray);
 
     idArray = idArray.map((value) => {
       return `https://api.themoviedb.org/3/movie/${value}?language=en-US`;
@@ -142,7 +141,7 @@ const App = () => {
         <h2>Flixster</h2>
       </header>
       <div className="body-container">
-        <div className="sidebar">
+        <nav className="sidebar">
           <div id="buttons">
             <button onClick={homeClicked} id="home1">
               {" "}
@@ -183,12 +182,13 @@ const App = () => {
                 );
               })}
           </div>
-        </div>
+        </nav>
         <div id="non-searchbar">
           <SearchFile
             query={handleSearch}
             nowPlayingChange={setNowPlaying}
             setSortFunction={setSortFunction}
+            homeClicked={homeClicked}
           />
           {isPopup && (
             <>
@@ -197,6 +197,7 @@ const App = () => {
                   <h3>{details.title}</h3>
                   <img
                     src={`https://image.tmdb.org/t/p/w400${details.backDrop}`}
+                    alt={`${details.title} backdrop image`}
                   />
                   <h3> {details.runtime} minutes</h3>
                   <h3> Release Date: {details.releaseDate} </h3>
@@ -210,7 +211,7 @@ const App = () => {
               </div>
             </>
           )}
-
+          <h3 id="banner">Find Your Movies</h3>
           <MovieList
             results={searchResults}
             showOverlay={setMovieDetails}
@@ -222,14 +223,16 @@ const App = () => {
             favoritedMovies={favoritedMovies}
             watchedMovies={watchedMovies}
           />
-          <button
-            id="more-button"
-            onClick={() => {
-              setPageNumber((self) => self + 1);
-            }}
-          >
-            Load More
-          </button>
+          {searchResults.length >= 20 && (
+            <button
+              id="more-button"
+              onClick={() => {
+                setPageNumber((self) => self + 1);
+              }}
+            >
+              Load More
+            </button>
+          )}
         </div>
         <div className="sidebar-right"></div>
       </div>

@@ -10,8 +10,9 @@
 }
 
 .movieCard:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   transition: 0.3s ease;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
   cursor: pointer;
 }
 
@@ -72,7 +73,7 @@ img {
   padding-inline: 8px;
   bottom: 10%;
   left: 0;
-  color: rgb(79, 225, 79);
+  color: #1fd61f;
 }
 
 @media (max-width: 600px) {

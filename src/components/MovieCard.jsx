@@ -19,7 +19,6 @@ const MovieCard = ({
   const handleClick = (event) => {
     event.preventDefault();
     getDetails();
-    console.log();
     popUp(true);
   };
 
@@ -34,9 +33,6 @@ const MovieCard = ({
       return "check";
     }
   });
-  if (movieID === 1376434) {
-    console.log(watchedMovies);
-  }
   const [isFavorite, setFavorite] = useState(() => {
     if (favoritedMovies === undefined || favoritedMovies.length === 0) {
       return "notFav";
@@ -119,7 +115,8 @@ const MovieCard = ({
     fetch(youtubeURL, options)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        // This is just to make sure what we are returning is actually a trialer, because
+        // lots of videos were just random yt videos and not the trailers.
         const trailer = json.results.filter((clip) => {
           if (
             clip.type == "Trailer" &&
@@ -139,7 +136,7 @@ const MovieCard = ({
   return (
     <>
       <div className="movieCard" onClick={handleClick}>
-        <img src={posterURL} />
+        <img src={posterURL} alt={`${trueTitle} poster image`} />
         <h3>{trueTitle}</h3>
         <p>Rating: {rating}</p>
         <button id={isFavorite} onClick={handleFavorite}>

@@ -1,5 +1,6 @@
 import MovieCard from "./MovieCard";
 import "./movieList.css";
+import { v4 as uuidv4 } from "uuid";
 
 const MovieList = ({
   results,
@@ -18,9 +19,7 @@ const MovieList = ({
     }
     if (sortingFunc === "alphabetic") {
       // lexographically by name of playlist
-      console.log(results);
       results.sort((a, b) => compareTitle(a, b));
-      console.log(results);
     } else if (sortingFunc === "rating") {
       // by number of likes (descending)
       results.sort((a, b) => compareRating(a, b));
@@ -64,7 +63,7 @@ const MovieList = ({
           {results.map((value, index) => {
             return (
               <MovieCard
-                key={value.id}
+                key={uuidv4()}
                 posterURL={`https://image.tmdb.org/t/p/w400${value.poster_path}`}
                 title={value.title}
                 rating={value.vote_average}

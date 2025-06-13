@@ -11,13 +11,34 @@ h2 {
   color: rgb(13, 13, 12);
   padding: 20px;
   margin: 0;
-  background-color: #fcf7f7;
+  background: linear-gradient(-45deg, #cbbeba, #dad4d6, #eef1f2, #edf0ef);
+  background-size: 500%;
+  animation: gradient 10s ease infinite;
   font-family: "Brush Script MT", cursive;
   font-size: 40px;
 }
 
+#banner {
+  font-family: "Brush Script MT", cursive;
+  font-size: 30px;
+  padding: 0;
+  margin: 20px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 header {
-  background-color: black;
+  background-color: rgb(254, 252, 252);
 }
 
 .App-header {
@@ -40,7 +61,7 @@ header {
   z-index: 1000;
   border: 2px solid white;
   padding: 40px;
-  background-color: rgb(66, 52, 42);
+  background-color: rgb(12, 9, 6);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -64,7 +85,7 @@ header {
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: rgba(75, 49, 49, 0.4); /* Black w/ opacity */
+  background-color: rgba(1, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 @keyframes modalAnimation {
@@ -140,7 +161,7 @@ footer {
 }
 
 #watched {
-  color: rgb(24, 176, 24);
+  color: #1fd61f;
   font-size: 20px;
   padding-inline: 8px;
   padding-top: 3px;
