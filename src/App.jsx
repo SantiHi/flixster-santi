@@ -66,6 +66,7 @@ const App = () => {
   };
 
   const doManySmallSearches = (options, favorite) => {
+    // for searches that will return a single movie dict, grouped as is handled similarly
     let idArray = [];
     if (favorite === true) {
       idArray = favoritedMovies.map((value) => {
@@ -90,6 +91,7 @@ const App = () => {
   };
 
   const doLargeSearch = (query, options) => {
+    // for searches that will return array of movies, instead of detials on a single movie. Grouped as they have similar format.
     let url = "";
     if (!isNowPlaying) {
       url = `https://api.themoviedb.org/3/search/movie?&query=${encodeURIComponent(
@@ -138,7 +140,7 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <h2>Flixster</h2>
+        <h1>Flixster</h1>
       </header>
       <main className="body-container">
         <nav className="sidebar">

@@ -25,7 +25,7 @@ const SearchFile = ({
   const handleClear = (event) => {
     setInputValue("");
     event.preventDefault();
-    homeClicked();
+    homeClicked(); // homeClicked does the same thing as clear, so we reuse function
   };
 
   const handleChange = (event) => {

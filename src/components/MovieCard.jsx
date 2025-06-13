@@ -14,6 +14,7 @@ const MovieCard = ({
   favoritedMovies,
   watchedMovies,
 }) => {
+  // If a title does not exist, give random title instead
   const trueTitle =
     title === "" || title === null || title === undefined ? "randTitle" : title;
   const handleClick = (event) => {
@@ -22,36 +23,35 @@ const MovieCard = ({
     popUp(true);
   };
 
+  // In case a poster does not exist for a movie, give a lorem ipsum title instead
+  const poster =
+    posterURL === "" ||
+    posterURL === null ||
+    posterURL === undefined ||
+    posterURL.includes("null")
+      ? "https://media.istockphoto.com/id/995815438/vector/movie-and-film-modern-retro-vintage-poster-background.jpg?s=612x612&w=0&k=20&c=UvRsJaKcp0EKIuqDKp6S7Dwhltt0D5rbegPkS-B8nDQ="
+      : posterURL;
+
   const [isChecked, setChecked] = useState(() => {
     if (watchedMovies === undefined || watchedMovies.length === 0) {
-      return "check";
+      return false;
     }
-    const checked = watchedMovies.some((self) => self.id === movieID);
-    if (checked === true) {
-      return "check2";
-    } else {
-      return "check";
-    }
+    return watchedMovies.some((self) => self.id === movieID);
   });
   const [isFavorite, setFavorite] = useState(() => {
     if (favoritedMovies === undefined || favoritedMovies.length === 0) {
-      return "notFav";
+      return false;
     }
-    const Favorite = favoritedMovies.some((self) => self.id === movieID);
-    if (Favorite === true) {
-      return "Fav";
-    } else {
-      return "notFav";
-    }
+    return favoritedMovies.some((self) => self.id === movieID);
   });
 
   const handleCheck = (event) => {
     event.stopPropagation();
-    if (isChecked === "check") {
-      setChecked("check2");
+    if (isChecked === false) {
+      setChecked(true);
       setWatchedMovies((self) => [...self, { title: trueTitle, id: movieID }]);
     } else {
-      setChecked("check");
+      setChecked(false);
       setWatchedMovies((self) =>
         self.filter((v) => {
           return v.title != trueTitle;
@@ -62,14 +62,14 @@ const MovieCard = ({
 
   const handleFavorite = (event) => {
     event.stopPropagation();
-    if (isFavorite === "notFav") {
-      setFavorite("Fav");
+    if (isFavorite === false) {
+      setFavorite(true);
       setFavoritedMovies((self) => [
         ...self,
         { title: trueTitle, id: movieID },
       ]);
     } else {
-      setFavorite("notFav");
+      setFavorite(false);
       setFavoritedMovies((self) =>
         self.filter((v) => {
           return v.title != trueTitle;
@@ -90,7 +90,7 @@ const MovieCard = ({
         Authorization: `Bearer ${apiKey}`,
       },
     };
-
+    // fetch is for DETAILS, needed as no other way to get certain values
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
@@ -111,7 +111,7 @@ const MovieCard = ({
         overlayFunc(details);
       })
       .catch((err) => console.error(err));
-
+    // using SEARCH of TMDB db.
     fetch(youtubeURL, options)
       .then((res) => res.json())
       .then((json) => {
@@ -136,14 +136,14 @@ const MovieCard = ({
   return (
     <>
       <div className="movieCard" onClick={handleClick}>
-        <img src={posterURL} alt={`${trueTitle} poster image`} />
+        <img src={poster} alt={`${trueTitle} poster image`} />
         <h3>{trueTitle}</h3>
         <p>Rating: {rating}</p>
-        <button id={isFavorite} onClick={handleFavorite}>
+        <button id={isFavorite ? "Fav" : "notFav"} onClick={handleFavorite}>
           {" "}
           ★{" "}
         </button>
-        <button id={isChecked} onClick={handleCheck}>
+        <button id={isChecked ? "watched" : "notWatched"} onClick={handleCheck}>
           {" "}
           ✓{" "}
         </button>
