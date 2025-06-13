@@ -34,11 +34,11 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
 - [x] **Design Features**
   - [x] Website implements all of the following accessibility features:
     - [x] Semantic HTML
-    - [ ] [Color contrast](https://webaim.org/resources/contrastchecker/)
+    - [x] [Color contrast](https://webaim.org/resources/contrastchecker/)
     - [x] Alt text for images
-  - [ ] Website implements responsive web design.
-    - [ ] Uses CSS Flexbox or CSS Grid
-    - [ ] Movie tiles and images shrink/grow in response to window size
+  - [x] Website implements responsive web design.
+    - [x] Uses CSS Flexbox or CSS Grid
+    - [x] Movie tiles and images shrink/grow in response to window size
   - [x] Users can click on a movie tile to view more details about a movie in a pop-up modal.
     - [x] The pop-up window is centered in the screen and does not occupy the entire screen.
     - [x] The pop-up window has a shadow to show that it is a pop-up and appears floating on the screen.
@@ -57,7 +57,7 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
     - [x] When a sort option is clicked, movies display in a grid according to selected criterion.
   - [x] Website displays:
     - [x] Header section
-    - [ ] Banner section
+    - [x] Banner section
     - [x] Search bar
     - [x] Movie grid
     - [x] Footer section
