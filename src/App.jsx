@@ -140,7 +140,7 @@ const App = () => {
       <header>
         <h2>Flixster</h2>
       </header>
-      <div className="body-container">
+      <main className="body-container">
         <nav className="sidebar">
           <div id="buttons">
             <button onClick={homeClicked} id="home1">
@@ -235,7 +235,7 @@ const App = () => {
           )}
         </div>
         <div className="sidebar-right"></div>
-      </div>
+      </main>
       <footer>
         <h4> © 2025 Santiago Criado |</h4>
         <a href="https://github.com/SantiHi/flixster-starter" target="_blank">
